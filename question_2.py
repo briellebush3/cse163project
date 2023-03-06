@@ -16,9 +16,8 @@ def new_data(file_name, file_name_2):
     df = df[pri | sec]
     print(df)
 
-    #total_educ = df[total_educ]
-
-# merge the datasets
+# filter first dataset by country name, GDP, year 
+# merge the datasets 
 # merged = GLOB_data.merge(total_educ, left_on='', right_on='')
 
 
