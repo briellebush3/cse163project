@@ -23,8 +23,8 @@ def sub_q1_2(file_name):
     # Second factor: educational attainmnet (years)
     # Calculate mean values of SES and yrseduc from entire period
     yrseduc_by_coun = df.groupby('country')['yrseduc'].mean()
-    ses_by_coun = df.groupby('country')['SES'].mean()
-    merged2 = yrseduc_by_coun.to_frame().merge(ses_by_coun.to_frame(), left_on='country', right_on='country')
+    sub_q1_2.ses_by_coun = df.groupby('country')['SES'].mean()
+    merged2 = yrseduc_by_coun.to_frame().merge(sub_q1_2.ses_by_coun.to_frame(), left_on='country', right_on='country')
     
     # If the 'yrseduc' column is not removed all rows with missing data,
     # the calculated data doesn't hsow quite a meaningful result.
@@ -72,7 +72,10 @@ def sub_q1_2(file_name):
 
     # plot legend
     ax_1.legend()
-    plt.savefig('sample1.png')
+    plt.title("Trends in SES in each country over GDP")
+    plt.xlabel('GDP per capita')
+    plt.ylabel('Socioeconomic status score')
+    plt.savefig('GDPPC vs SES.png')
 
 
     # This is the same process like the above one. 
@@ -104,12 +107,16 @@ def sub_q1_2(file_name):
                  line_kws={'label':"y={0:.1f}x+{1:.1f}".format(slope_2,intercept_2)})
     # plot legend
     ax_2.legend()
-    plt.savefig('sample2.png')
+    plt.title("Trends in SES in each country over years of education")
+    plt.xlabel('Years of education')
+    plt.ylabel('Socioeconomic status score')
+    plt.savefig('Yrseduc vs SES.png')
     plt.show()
-    return ses_by_coun
+
+
     
 
-def sub_q3(file_name, ses_by_coun):
+def sub_q3(file_name, ses_data):
     data2 = pd.read_csv(file_name)
 
     data2 = data2.dropna() 
@@ -118,7 +125,7 @@ def sub_q3(file_name, ses_by_coun):
 
     data2 = data2.groupby('Country Name')[['1991','1992','1993','1994','1995','1996','1997','1998','1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011']].sum().mean(axis=1) 
 
-    merged3 = pd.DataFrame(data2).join(ses_by_coun)
+    merged3 = pd.DataFrame(data2).join(ses_data)
     merged3 = merged3.dropna()
     merged3.rename(columns={0:'Unemployment Rate'}, inplace=True)
 
@@ -148,16 +155,19 @@ def sub_q3(file_name, ses_by_coun):
                  line_kws={'label':"y={0:.1f}x+{1:.1f}".format(slope_3,intercept_3)})
     # plot legend
     ax_3.legend()
-    plt.savefig('sample3.png')
-
+    plt.title("Trends in SES in each country over Unemployment Rate")
+    plt.xlabel('Unemployment Rate')
+    plt.ylabel('Socioeconomic status score')
+    plt.savefig('Unemployment Rate vs SES.png')
     plt.show()
 
 
 def main(): 
     sub_q1_2("GLOB.SES.csv")
-    # runs double, needed to fix
-    sub_q3('global_unemployment_rate.csv', sub_q1_2("GLOB.SES.csv"))
+    sub_q3('global_unemployment_rate.csv', sub_q1_2.ses_by_coun)
 
 
 if __name__ == '__main__':
     main()
+     
+
