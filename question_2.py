@@ -25,8 +25,12 @@ def new_data(file_name, file_name_2):
     print(df2)
 
     # merged = df.merge(df2, left_on='Country Name', right_on='year', how='outer') ?
-    merged = pd.merge(df, df2, on=['country', 'year'], how='inner')
-    print(merged)
+    
+    merged = df2.merge(df, left_on='country', right_on='Country Name', how='inner')
+    # merged two datasets with having common column (country & Country Name)
+    # It's a redunduncy process but extract columns that we only need. 
+    # If there's a missing column, you can add it. 
+    merged[['country', 'year', 'gdppc', '1970 [YR1970]', '1980 [YR1980]', '1990 [YR1990]','2000 [YR2000]', '2010 [YR2010]']]
 
 
 def main(): 
