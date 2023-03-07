@@ -20,6 +20,14 @@ def new_data(file_name, file_name_2):
 # merge the datasets 
 # merged = GLOB_data.merge(total_educ, left_on='', right_on='')
 
+    # filter for country, year, gdppc
+    df2 = data[['country', 'year', 'gdppc']]
+    print(df2)
+
+    # merged = df.merge(df2, left_on='Country Name', right_on='year', how='outer') ?
+    merged = pd.merge(df, df2, on=['country', 'year'], how='inner')
+    print(merged)
+
 
 def main(): 
     new_data("GLOB.SES.csv", "yrseduc_data2.csv")
