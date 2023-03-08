@@ -123,7 +123,7 @@ def sub_q3(file_name, ses_data):
 
     # data2 = data2.sum(axis=1) / (len(data2.columns))
 
-    data2 = data2.groupby('Country Name')[['1991','1992','1993','1994','1995','1996','1997','1998','1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011']].sum().mean(axis=1) 
+    data2 = data2.groupby('Country Name')[['1991','1992','1993','1994','1995','1996','1997','1998','1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010']].sum().mean(axis=1) 
 
     merged3 = pd.DataFrame(data2).join(ses_data)
     merged3 = merged3.dropna()
