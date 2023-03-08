@@ -36,8 +36,8 @@ def new_data(file_name, file_name_2):
     sns.relplot(x='year', y='gdppc', data=merged)
 
     #plt.legend()
-    plt.title("Education Attainment Impact on GDP Per Capita")
-    plt.xlabel('Education Attainment')
+    plt.title("Education Attainment Impact on GDP Per Capita (1970-2010)")
+    plt.xlabel('Education Attainment by year')
     plt.ylabel('GDP Per Capita')
     plt.savefig('Educ vs GDPPC.png')
 
