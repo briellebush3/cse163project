@@ -16,21 +16,27 @@ def new_data(file_name, file_name_2):
     df = df[pri | sec]
     print(df)
 
-# filter first dataset by country name, GDP, year 
-# merge the datasets 
-# merged = GLOB_data.merge(total_educ, left_on='', right_on='')
 
     # filter for country, year, gdppc
     df2 = data[['country', 'year', 'gdppc']]
     print(df2)
 
-    # merged = df.merge(df2, left_on='Country Name', right_on='year', how='outer') ?
     
-    merged = df2.merge(df, left_on='country', right_on='Country Name', how='inner')
     # merged two datasets with having common columns (country & Country Name)
     # It's a redunduncy process but extract columns that we only need. 
     # If there's a missing column, you can add it. 
+    merged = df2.merge(df, left_on='country', right_on='Country Name', how='inner')
     merged[['country', 'year', 'gdppc', '1970 [YR1970]', '1980 [YR1980]', '1990 [YR1990]','2000 [YR2000]', '2010 [YR2010]']]
+    print(merged)
+
+    # make a scatterplot 
+    ax_70 = sns.relplot(x='1970 [YR1970]', y='gdppc', data=merged)
+
+    ax_70.legend()
+    plt.title("Education Attainment impact on GDP Per Capita (1970)")
+    plt.xlabel('Education Attainment (1970)')
+    plt.ylabel('GDP Per Capita')
+    plt.savefig('Educ vs GDPPC.png')
 
 
 def main(): 
