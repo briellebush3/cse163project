@@ -26,20 +26,20 @@ def new_data(file_name, file_name_2):
     # It's a redunduncy process but extract columns that we only need. 
     # If there's a missing column, you can add it. 
     merged = df2.merge(df, left_on='country', right_on='Country Name', how='inner')
-    merged[['country', 'year', 'gdppc', '1970 [YR1970]', '1980 [YR1980]', '1990 [YR1990]','2000 [YR2000]', '2010 [YR2010]']]
-    print(merged)
+    year = merged[['country', 'year', 'gdppc', '1970 [YR1970]', '1980 [YR1980]', '1990 [YR1990]','2000 [YR2000]', '2010 [YR2010]']]
+    #print(merged)
 
-    year = df['1970 [YR1970]'] + df['1980 [YR1980]'] + df['1990 [YR1990]'] + df['2000 [YR2000]'] + df['2010 [YR2010]']
-    print(year)
+    year = merged['1970 [YR1970]'] + df['1980 [YR1980]'] + df['1990 [YR1990]'] + df['2000 [YR2000]'] + df['2010 [YR2010]']
+    # print(year)
 
     # make a scatterplot 
     sns.relplot(x='year', y='gdppc', data=merged)
 
     #plt.legend()
-    plt.title("Education Attainment Impact on GDP Per Capita (1970-2010)")
-    plt.xlabel('Education Attainment by year')
+    plt.title("Education Attainment Impact On GDP Per Capita (1970-2010)")
+    plt.xlabel('Education Attainment By Year')
     plt.ylabel('GDP Per Capita')
-    plt.savefig('Educ vs GDPPC.png')
+    plt.savefig('Educ vs GDPPC.png', bbox_inches='tight')
 
 
 def main(): 
