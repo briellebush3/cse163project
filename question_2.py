@@ -1,6 +1,6 @@
 import seaborn as sns
 import pandas as pd
-import matplotlib.pyplot as plot
+import matplotlib.pyplot as plt
  
 
 def new_data(file_name, file_name_2):
@@ -29,12 +29,15 @@ def new_data(file_name, file_name_2):
     merged[['country', 'year', 'gdppc', '1970 [YR1970]', '1980 [YR1980]', '1990 [YR1990]','2000 [YR2000]', '2010 [YR2010]']]
     print(merged)
 
-    # make a scatterplot 
-    ax_70 = sns.relplot(x='1970 [YR1970]', y='gdppc', data=merged)
+    year = df['1970 [YR1970]'] + df['1980 [YR1980]'] + df['1990 [YR1990]'] + df['2000 [YR2000]'] + df['2010 [YR2010]']
+    print(year)
 
-    ax_70.legend()
-    plt.title("Education Attainment impact on GDP Per Capita (1970)")
-    plt.xlabel('Education Attainment (1970)')
+    # make a scatterplot 
+    sns.relplot(x='year', y='gdppc', data=merged)
+
+    #plt.legend()
+    plt.title("Education Attainment Impact on GDP Per Capita")
+    plt.xlabel('Education Attainment')
     plt.ylabel('GDP Per Capita')
     plt.savefig('Educ vs GDPPC.png')
 
