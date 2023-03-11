@@ -1,5 +1,6 @@
 import question_1
 import question_2
+import question_3
 from cse163_utils import assert_equals
 
 FILE_NAME = "GLOB.SES.csv"
@@ -47,10 +48,43 @@ def test_ideal_unemployment_rate_countries(ses_data):
                   question_1.sub_q3(FILE_NAME_2, ses_data))
 
 
+def test_top_and_bottom_1910():
+    assert_equals(['New Zealand', 'United States', 'Australia',
+                   'Switzerland', 'Canada', 'Ethiopia', 'Mozambique',
+                   'Senegal', 'Angola', 'Sudan'],
+                  question_3.plot_top_bottom_10_1910(FILE_NAME))
+
+
+def test_top_and_bottom_1940():
+    assert_equals(['United States', 'Switzerland', 'Australia',
+                   'New Zealand', 'Canada', 'Senegal', 'Sudan',
+                   'Sierra Leone', "CÙte d'Ivoire", 'Angola'],
+                  question_3.plot_top_bottom_10_1940(FILE_NAME))
+
+
+def test_top_and_bottom_1970():
+    assert_equals(['United States', 'Switzerland', 'New Zealand',
+                   'Australia', 'Canada', 'Uganda', 'Niger',
+                   'Myanmar', 'Malawi', 'Ethiopia'],
+                  question_3.plot_top_bottom_10_1970(FILE_NAME))
+
+
+def test_top_and_bottom_2010():
+    assert_equals(['Norway', 'United States', 'Australia',
+                   'Canada', 'Ireland', 'Madagascar',
+                   'Sierra Leone', 'Mali', 'Ethiopia', 'Mozambique'],
+                  question_3.plot_top_bottom_10_2010(FILE_NAME))
+
+
 def main():
     test_top_and_bottom_countries()
     test_yrseduc_of_adult_countries()
     test_ideal_unemployment_rate_countries(question_1.sub_q2.ses_by_coun)
+
+    test_top_and_bottom_1910()
+    test_top_and_bottom_1940()
+    test_top_and_bottom_1970()
+    test_top_and_bottom_2010()
 
 
 if __name__ == '__main__':

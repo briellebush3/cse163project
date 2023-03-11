@@ -9,6 +9,10 @@ def plot_top_bottom_10_1910(file_name):
     yrs1910 = data['year'] == 1910
     data_1 = data[yrs1910]
     data_1 = data_1.sort_values(by=['SES'], ascending=False)
+    top5 = data_1.iloc[0:5, 2].values
+    bottom5 = data_1.iloc[-6:-1, 2].values
+    t_b_1910 = list(top5) + list(bottom5)
+
     x = data_1.loc[:, ["SES"]]
     data_1['ses_m'] = (x-x.mean())
     data_1['colors'] = ['red' if x < 0 else 'green' for x in data_1['ses_m']]
@@ -29,6 +33,7 @@ def plot_top_bottom_10_1910(file_name):
     plt.title('Diverging Bars of Country SES: 1910', fontdict={'size': 20})
     plt.grid(linestyle='--', alpha=0.5)
     plt.show()
+    return t_b_1910
 
 
 def plot_top_bottom_10_1940(file_name):
@@ -37,6 +42,10 @@ def plot_top_bottom_10_1940(file_name):
     yrs1940 = data['year'] == 1940
     data_2 = data[yrs1940]
     data_2 = data_2.sort_values(by=['SES'], ascending=False)
+    top5 = data_2.iloc[0:5, 2].values
+    bottom5 = data_2.iloc[-6:-1, 2].values
+    t_b_1940 = list(top5) + list(bottom5)
+
     x = data_2.loc[:, ["SES"]]
     data_2['ses_m'] = (x-x.mean())
     data_2['colors'] = ['red' if x < 0 else 'green' for x in data_2['ses_m']]
@@ -57,6 +66,7 @@ def plot_top_bottom_10_1940(file_name):
     plt.title('Diverging Bars of Country SES: 1940', fontdict={'size': 20})
     plt.grid(linestyle='--', alpha=0.5)
     plt.show()
+    return t_b_1940
 
 
 def plot_top_bottom_10_1970(file_name):
@@ -65,6 +75,10 @@ def plot_top_bottom_10_1970(file_name):
     yrs1970 = data['year'] == 1970
     data_3 = data[yrs1970]
     data_3 = data_3.sort_values(by=['SES'], ascending=False)
+    top5 = data_3.iloc[0:5, 2].values
+    bottom5 = data_3.iloc[-6:-1, 2].values
+    t_b_1970 = list(top5) + list(bottom5)
+
     x = data_3.loc[:, ["SES"]]
     data_3['ses_m'] = (x-x.mean())
     data_3['colors'] = ['red' if x < 0 else 'green' for x in data_3['ses_m']]
@@ -85,6 +99,7 @@ def plot_top_bottom_10_1970(file_name):
     plt.title('Diverging Bars of Country SES: 1970', fontdict={'size': 20})
     plt.grid(linestyle='--', alpha=0.5)
     plt.show()
+    return t_b_1970
 
 
 def plot_top_bottom_10_2010(file_name):
@@ -93,6 +108,10 @@ def plot_top_bottom_10_2010(file_name):
     yrs2010 = data['year'] == 2010
     data_4 = data[yrs2010]
     data_4 = data_4.sort_values(by=['SES'], ascending=False)
+    top5 = data_4.iloc[0:5, 2].values
+    bottom5 = data_4.iloc[-6:-1, 2].values
+    t_b_2010 = list(top5) + list(bottom5)
+    
     x = data_4.loc[:, ["SES"]]
     data_4['ses_m'] = (x-x.mean())
     data_4['colors'] = ['red' if x < 0 else 'green' for x in data_4['ses_m']]
@@ -113,6 +132,7 @@ def plot_top_bottom_10_2010(file_name):
     plt.title('Diverging Bars of Country SES: 2010', fontdict={'size': 20})
     plt.grid(linestyle='--', alpha=0.5)
     plt.show()
+    return t_b_2010
 
 
 def top_countries_ml(file_name):
