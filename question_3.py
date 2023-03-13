@@ -280,7 +280,7 @@ def bottom_countries_ml(file_name):
     """
     Takes a CSV file and filter the common bottom 7 countries between 1910
     and 2010. Use DecisionTreeRegressor ML model to train and test the dataset
-    and calcuate mean squared errors. Plot max_depth and error graphs. 
+    and calcuate mean squared errors. Plot max_depth and error graphs.
     """
     data = pd.read_csv(file_name)
     nig = data['country'] == 'Niger'
