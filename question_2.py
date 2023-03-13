@@ -19,16 +19,17 @@ def new_data(file_name, file_name_2):
     df2 = data[['country', 'year', 'gdppc']]
 
     # merged two datasets with having common columns (country & Country Name)
-    # It's a redunduncy process but extract columns that we only need. 
-    # If there's a missing column, you can add it. 
-    merged = df2.merge(df, left_on='country', right_on='Country Name', how='inner')
-    merged = merged[['country', 'year', 'gdppc', '1970 [YR1970]', '1980 [YR1980]', '1990 [YR1990]','2000 [YR2000]', '2010 [YR2010]']]
+    # It's a redunduncy process but extract columns that we only need.
+    # If there's a missing column, you can add it.
+    merged = df2.merge(df, left_on='country',
+                       right_on='Country Name', how='inner')
+    year = merged[['country', 'year', 'gdppc', '1970 [YR1970]',
+                   '1980 [YR1980]', '1990 [YR1990]', '2000 [YR2000]',
+                   '2010 [YR2010]']]
+    # print(merged)
 
-    year = df['1970 [YR1970]'] + df['1980 [YR1980]'] + df['1990 [YR1990]'] +  df['2000 [YR2000]'] + df['2010 [YR2010]']
-    yrs = merged['year'] >= 1970
-    merged = merged[yrs]
 
-
+    # make a scatterplot
     sns.relplot(x='year', y='gdppc', data=merged)
 
     #plt.legend()
