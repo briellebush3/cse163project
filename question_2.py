@@ -32,8 +32,8 @@ def new_data(file_name, file_name_2):
     # filter for total primary and secondary school for 15+
     pri = df['Series Name'] == "Barro-Lee: Average years of primary schooling,\
           age 15+, total"
-    sec = df['Series Name'] == "Barro-Lee: Average years of secondary schooling,\
-        age 15+, total"
+    sec = df['Series Name'] == "Barro-Lee: Average years of secondary\
+        schooling, age 15+, total"
     df = df[pri | sec]
 
     # filter for country, year, gdppc

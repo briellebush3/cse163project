@@ -3,11 +3,12 @@ Brielle Bush and Jihoon Park
 CSE 163 AB
 This program uses the global socioeconomic status scores from 1880 to
 2010, unemployment rate and years of education of primary and secondary
-schooling. All the data files are in CSV format to investigate global socioeconomic
-scores with gdppc, years of education, and unemployment rate statistics.
-Each row in the dataset corresponds to each country for gdppc,
-years of education. This program implements each function to manipulate
-and extract a particular dataset and plot graphs to visualize the results.
+schooling. All the data files are in CSV format to investigate global
+socioeconomic scores with gdppc, years of education, and unemployment
+rate statistics. Each row in the dataset corresponds to each country
+for gdppc, years of education. This program implements each function
+to manipulate and extract a particular dataset and plot graphs to
+visualize the results.
 """
 import seaborn as sns
 import pandas as pd
