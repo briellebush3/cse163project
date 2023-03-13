@@ -1,3 +1,14 @@
+"""
+Brielle Bush and Jihoon Park
+CSE 163 AB
+This program uses global socioeconomic status score from 1880 to
+2010, unemployment rate and years of education of primary and secondary
+schooling. All the data files is CSV format to investigate global socioeconmic
+score with gdppc, years of eduction and unemployment rate statistics.
+Each row in the dataset corresponds to each country for gdppc,
+years of education. This program implements each functions to manipulate
+and extract a particular of datasets and plot graphs to visualize the results.
+"""
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -5,6 +16,13 @@ from scipy import stats
 
 
 def sub_q1(file_name):
+    """
+    Takes a CSV file and filter some columns that will be used in the
+    future computing. Compare average values of SES and gdppc over the
+    same period and plot scatter graph to visualize it.
+    Also, compute the slope of the regression line and R-squared value.
+    Returns the top and bottom 10 countries of the merged dataset.
+    """
     data = pd.read_csv(file_name)
     df = data[['country', 'year', 'SES', 'gdppc', 'yrseduc']]
     yrs1900 = df['year'] >= 1900
@@ -59,11 +77,17 @@ def sub_q1(file_name):
     plt.xlabel('GDP per capita')
     plt.ylabel('Socioeconomic status score')
     plt.savefig('GDPPC vs SES.png')
-    # plt.show()
     return t_b_list
 
 
 def sub_q2(file_name):
+    """
+    Takes a CSV file and filter some columns that will be used in
+    the future computing. Compare average values of SES and years of
+    education over the same period and plot scatter graph to visualize it.
+    Also, compute the slope of the regression line and R-squared value.
+    Returns adults' years of education countries that already filtered.
+    """
     data = pd.read_csv(file_name)
     df = data[['country', 'year', 'SES', 'gdppc', 'yrseduc']]
     yrseduc_by_coun = df.groupby('country')['yrseduc'].mean()
@@ -106,6 +130,13 @@ def sub_q2(file_name):
 
 
 def sub_q3(file_name, ses_data):
+    """
+    Takes a CSV file and a filtered dataframe from sub_q2 function.
+    Compare average values of SES and unemployment rate over the same
+    period and plot scatter graph to visualize it.
+    Also, compute the slope of the regression line and R-squared value.
+    Returns the filtered dataset countries to list.
+    """
     data2 = pd.read_csv(file_name)
     data2 = data2.dropna()
     data2 = data2.groupby('Country Name')[['1991', '1992', '1993',
@@ -151,7 +182,7 @@ def sub_q3(file_name, ses_data):
     plt.savefig('Unemployment Rate vs SES.png')
     plt.show()
     return less_5_per_list
-    
+
 
 def main():
     sub_q1("GLOB.SES.csv")

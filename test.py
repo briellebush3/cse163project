@@ -1,3 +1,9 @@
+"""
+Brielle Bush and Jihoon Park
+CSE 163 AB
+This program tests implementation of the functions for question_1, question_2 and 
+question_3
+"""
 import question_1
 import question_2
 import question_3

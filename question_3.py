@@ -1,9 +1,28 @@
+"""
+Brielle Bush and Jihoon Park
+CSE 163 AB
+This program uses global socioeconomic status score from 1880 to 
+2010, unemployment rate and years of education of primary and secondary
+schooling. All the data files is CSV format to investigate global socioeconmic 
+score with gdppc, years of eduction and unemployment rate statistics. 
+Each row in the dataset corresponds to each country for gdppc, years of education.
+This program implements each functions to manipulate and extract
+a particular of datasets and plot graphs to visualize the results.
+"""
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.tree import DecisionTreeRegressor
 
 
 def plot_top_bottom_10_1910(file_name):
+    """
+    Takes a CSV file and filter the given dataframe with a certain conditions.
+    Calculate the average value of the SES numerical value of all countries and 
+    subtract a SES score of every counry from the average value.
+    Plot a bar graph to see which country rank high and bottom position. 
+    Also, compute the slope of the regression line and R-squared value.
+    Returns adults' years of education countries that already filtered.
+    """
     data = pd.read_csv(file_name)
     data = data.dropna()
     yrs1910 = data['year'] == 1910
