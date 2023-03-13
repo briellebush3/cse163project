@@ -1,12 +1,12 @@
 """
 Brielle Bush and Jihoon Park
 CSE 163 AB
-This program uses global socioeconomic status score from 1880 to 
+This program uses global socioeconomic status score from 1880 to
 2010, unemployment rate and years of education of primary and secondary
-schooling. All the data files is CSV format to investigate global socioeconmic 
-score with gdppc, years of eduction and unemployment rate statistics. 
-Each row in the dataset corresponds to each country for gdppc, years of education.
-This program implements each functions to manipulate and extract
+schooling. All the data files is CSV format to investigate global socioeconmic
+score with gdppc, years of eduction and unemployment rate statistics.
+Each row in the dataset corresponds to each country for gdppc, years of
+education. This program implements each functions to manipulate and extract
 a particular of datasets and plot graphs to visualize the results.
 """
 import pandas as pd
@@ -21,7 +21,7 @@ def plot_top_bottom_10_1910(file_name):
     SES numerical value of all countries and subtract a SES score
     of every counry from the average value.
     Plot a bar graph to see which country rank high and bottom position.
-    Returns top and bottom 5 countries as a list. 
+    Returns top and bottom 5 countries as a list.
     """
     data = pd.read_csv(file_name)
     data = data.dropna()
@@ -62,7 +62,7 @@ def plot_top_bottom_10_1940(file_name):
     SES numerical value of all countries and subtract a SES score
     of every counry from the average value.
     Plot a bar graph to see which country rank high and bottom position.
-    Returns top and bottom 5 countries as a list. 
+    Returns top and bottom 5 countries as a list.
     """
     data = pd.read_csv(file_name)
     data = data.dropna()
@@ -103,7 +103,7 @@ def plot_top_bottom_10_1970(file_name):
     SES numerical value of all countries and subtract a SES score
     of every counry from the average value.
     Plot a bar graph to see which country rank high and bottom position.
-    Returns top and bottom 5 countries as a list. 
+    Returns top and bottom 5 countries as a list.
     """
     data = pd.read_csv(file_name)
     data = data.dropna()
@@ -144,7 +144,7 @@ def plot_top_bottom_10_2010(file_name):
     SES numerical value of all countries and subtract a SES score
     of every counry from the average value.
     Plot a bar graph to see which country rank high and bottom position.
-    Returns top and bottom 5 countries as a list. 
+    Returns top and bottom 5 countries as a list.
     """
     data = pd.read_csv(file_name)
     data = data.dropna()
@@ -154,7 +154,7 @@ def plot_top_bottom_10_2010(file_name):
     top5 = data_4.iloc[0:5, 2].values
     bottom5 = data_4.iloc[-6:-1, 2].values
     t_b_2010 = list(top5) + list(bottom5)
-    
+
     x = data_4.loc[:, ["SES"]]
     data_4['ses_m'] = (x-x.mean())
     data_4['colors'] = ['red' if x < 0 else 'green' for x in data_4['ses_m']]
@@ -180,9 +180,10 @@ def plot_top_bottom_10_2010(file_name):
 
 def top_countries_ml(file_name):
     """
-    Takes a CSV file and filter the common top 7 countries between 1910 and 2010.
-    Use DecisionTreeRegressor ML model to train and test the dataset and calcuate
-    mean squared errors. Plot max_depth and error graphs. 
+    Takes a CSV file and filter the common top 7 countries between 1910
+    and 2010. Use DecisionTreeRegressor ML model to train and test
+    the dataset and calcuate mean squared errors. Plot max_depth
+    and error graphs.
     """
     data = pd.read_csv(file_name)
 
@@ -277,9 +278,9 @@ def top_countries_ml(file_name):
 
 def bottom_countries_ml(file_name):
     """
-    Takes a CSV file and filter the common bottom 7 countries between 1910 and 2010.
-    Use DecisionTreeRegressor ML model to train and test the dataset and calcuate
-    mean squared errors. Plot max_depth and error graphs. 
+    Takes a CSV file and filter the common bottom 7 countries between 1910
+    and 2010. Use DecisionTreeRegressor ML model to train and test the dataset
+    and calcuate mean squared errors. Plot max_depth and error graphs. 
     """
     data = pd.read_csv(file_name)
     nig = data['country'] == 'Niger'
