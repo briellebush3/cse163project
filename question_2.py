@@ -1,13 +1,9 @@
-"""
-Brielle Bush and Jihoon Park
-CSE 163 AB
-This file contains the code that answers and analyzes our
-second research question, how does education attainment contribute
-to the national development of a country via its GDP per capita?
-We merged two datasets to get the most complete data possible
-about educational attainment in countries around the world.
-We generated a data visualization that clearly demonstrates our results.
-"""
+# This file contains the code that answers and analyzes our
+# second research question, how does education attainment contribute
+# to the national development of a country via its GDP per capita?
+# We merged two datasets to get the most complete data possible
+# about educational attainment in countries around the world.
+# We generated a data visualization that clearly demonstrates our results.
 
 import seaborn as sns
 import pandas as pd
@@ -15,13 +11,11 @@ import matplotlib.pyplot as plt
 
 
 def new_data(file_name, file_name_2):
-    """
-    This function reads in the two datasets we use to answer
-    our second research question. We filtered and merged the
-    two datasets to get the country name, type of educational
-    attainment, and years. We generated a scatter plot to
-    analyze our findings.
-    """
+    # This function reads in the two datasets we use to answer
+    # our second research question. We filtered and merged the
+    # two datasets to get the country name, type of educational
+    # attainment, and years. We generated a scatter plot to
+    # analyze our findings.
     data = pd.read_csv(file_name)
     data2 = pd.read_csv(file_name_2)
 
