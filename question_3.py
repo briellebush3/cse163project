@@ -15,7 +15,7 @@ from sklearn.tree import DecisionTreeRegressor
 
 
 def plot_top_bottom_10_1910(file_name):
-   """
+    """
     Takes a CSV file and filter the given dataframe with a
     certain conditions in 1910. Calculate the average value of the
     SES numerical value of all countries and subtract a SES score
