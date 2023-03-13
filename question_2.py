@@ -19,7 +19,7 @@ def new_data(file_name, file_name_2):
     This function reads in the two datasets we use to answer
     our second research question. We filtered and merged the
     two datasets to get the country name, type of educational
-    attainment, and years. We generated a scatter plot to
+    attainment, years and GDP. We generated a scatter plot to
     analyze our findings.
     """
     data = pd.read_csv(file_name)
