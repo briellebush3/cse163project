@@ -218,7 +218,7 @@ def top_countries_ml(file_name):
     print('Test mean squared error:', mean_squared_error(
         labels_test, test_predictions))
 
-    short_model = DecisionTreeRegressor(max_depth=4)
+    short_model = DecisionTreeRegressor(max_depth=2)
     short_model.fit(features_train, labels_train)
     train_predictions = short_model.predict(features_train)
     print('Train mean squared error:', mean_squared_error(
@@ -313,7 +313,7 @@ def bottom_countries_ml(file_name):
     print('Test mean squared error:', mean_squared_error(
         labels_test, test_predictions))
 
-    short_model = DecisionTreeRegressor(max_depth=4)
+    short_model = DecisionTreeRegressor(max_depth=2)
     short_model.fit(features_train, labels_train)
     train_predictions = short_model.predict(features_train)
     print('Train mean squared error:', mean_squared_error(
