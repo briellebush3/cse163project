@@ -1,17 +1,17 @@
 digraph Tree {
 node [shape=box, style="filled, rounded", color="black", fontname="helvetica"] ;
 edge [fontname="helvetica"] ;
-0 [label=<yrseduc &le; 6.53<br/>samples = 78<br/>value = 92.534>, fillcolor="#f0b88f"] ;
-1 [label=<gdppc &le; 3687.0<br/>samples = 16<br/>value = 87.95>, fillcolor="#fbebdf"] ;
+0 [label=<yrseduc &le; 6.455<br/>samples = 78<br/>value = 92.501>, fillcolor="#f0b88f"] ;
+1 [label=<gdppc &le; 3733.0<br/>samples = 16<br/>value = 87.883>, fillcolor="#fbeade"] ;
 0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
-2 [label=<samples = 12<br/>value = 86.151>, fillcolor="#ffffff"] ;
+2 [label=<samples = 12<br/>value = 85.992>, fillcolor="#ffffff"] ;
 1 -> 2 ;
-3 [label=<samples = 4<br/>value = 93.346>, fillcolor="#eeaf81"] ;
+3 [label=<samples = 4<br/>value = 93.555>, fillcolor="#eeac7d"] ;
 1 -> 3 ;
-4 [label=<yrseduc &le; 12.197<br/>samples = 62<br/>value = 93.717>, fillcolor="#eeab7a"] ;
+4 [label=<yrseduc &le; 12.197<br/>samples = 62<br/>value = 93.692>, fillcolor="#eeab7a"] ;
 0 -> 4 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
-5 [label=<samples = 59<br/>value = 93.527>, fillcolor="#eead7e"] ;
+5 [label=<samples = 59<br/>value = 93.5>, fillcolor="#eead7e"] ;
 4 -> 5 ;
-6 [label=<samples = 3<br/>value = 97.451>, fillcolor="#e58139"] ;
+6 [label=<samples = 3<br/>value = 97.48>, fillcolor="#e58139"] ;
 4 -> 6 ;
 }
